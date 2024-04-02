@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://4w524me1s4ot"]
+
+[ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://paddle.tscn" id="1_5dmrk"]
+[ext_resource type="Texture2D" uid="uid://bbdh6vbxld618" path="res://texture_09.png" id="1_f4fjx"]
+[ext_resource type="Texture2D" uid="uid://4xe8uim4kybb" path="res://texture_03.png" id="2_686m8"]
+[ext_resource type="Script" path="res://leftpaddle.gd" id="2_pay5d"]
+[ext_resource type="Script" path="res://rightpaddle.gd" id="3_bxpko"]
+[ext_resource type="PackedScene" uid="uid://c1aqvar5pvxko" path="res://ball.tscn" id="4_nj6du"]
+[ext_resource type="Script" path="res://ball.gd" id="5_il4f7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_puux4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_o4cfg"]
+sky_material = SubResource("ProceduralSkyMaterial_puux4")
+
+[sub_resource type="Environment" id="Environment_mdllj"]
+background_mode = 2
+sky = SubResource("Sky_o4cfg")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_act85"]
+size = Vector3(7.925, 4.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbenq"]
+albedo_texture = ExtResource("1_f4fjx")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mmj7"]
+size = Vector3(7.925, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l8oo"]
+albedo_texture = ExtResource("2_686m8")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwqvs"]
+size = Vector3(7.925, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el26m"]
+albedo_texture = ExtResource("2_686m8")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[node name="play" type="Node3D"]
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.0315956, 0.546394, 0.836932, -0.499001, 0.716906, -0.486872, 0, 4.28719, -7.04793)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_mdllj")
+
+[node name="areana" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="floor" type="MeshInstance3D" parent="areana"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.08165e-12, -0.5, 2.08165e-12)
+mesh = SubResource("BoxMesh_act85")
+skeleton = NodePath("../../Camera3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_wbenq")
+
+[node name="walls" type="Node3D" parent="areana"]
+
+[node name="top" type="Area3D" parent="areana/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221186, -2.77814)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="areana/walls/top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_7mmj7")
+surface_material_override/0 = SubResource("StandardMaterial3D_4l8oo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areana/walls/top"]
+shape = SubResource("BoxShape3D_rwqvs")
+
+[node name="bot" type="Area3D" parent="areana/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.221186, 2.7361)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="areana/walls/bot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0, 0)
+mesh = SubResource("BoxMesh_7mmj7")
+surface_material_override/0 = SubResource("StandardMaterial3D_el26m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="areana/walls/bot"]
+shape = SubResource("BoxShape3D_rwqvs")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.520339, 0.85396, 0, -0.85396, 0.520339, 0, 4.0743, 2.49699)
+
+[node name="left" parent="." instance=ExtResource("1_5dmrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54, 0.298, 2.08165e-12)
+script = ExtResource("2_pay5d")
+
+[node name="right" parent="." instance=ExtResource("1_5dmrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.598, 0.298, 2.08165e-12)
+script = ExtResource("3_bxpko")
+
+[node name="ball" parent="." instance=ExtResource("4_nj6du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0229974, 0.218147, 0)
+script = ExtResource("5_il4f7")
+
+[connection signal="area_entered" from="areana/walls/top" to="ball" method="_on_top_area_entered"]
+[connection signal="area_entered" from="areana/walls/bot" to="ball" method="_on_bot_area_entered"]
+[connection signal="area_entered" from="left" to="ball" method="_on_left_area_entered"]
+[connection signal="area_entered" from="right" to="ball" method="_on_right_area_entered"]
