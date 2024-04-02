@@ -24,9 +24,11 @@ glow_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_act85"]
 size = Vector3(7.925, 4.5, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbenq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nefd"]
 albedo_texture = ExtResource("1_f4fjx")
+uv1_scale = Vector3(0.345, 0.345, 0.345)
 uv1_triplanar = true
+uv2_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mmj7"]
 size = Vector3(7.925, 1, 1)
@@ -62,7 +64,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.08165e-12, -0.5, 2.08165e-12)
 mesh = SubResource("BoxMesh_act85")
 skeleton = NodePath("../../Camera3D")
-surface_material_override/0 = SubResource("StandardMaterial3D_wbenq")
+surface_material_override/0 = SubResource("StandardMaterial3D_8nefd")
 
 [node name="walls" type="Node3D" parent="areana"]
 
