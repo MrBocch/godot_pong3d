@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://4w524me1s4ot"]
 
-[ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://paddle.tscn" id="1_5dmrk"]
+[ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://scenes/paddle/paddle.tscn" id="1_5dmrk"]
 [ext_resource type="Texture2D" uid="uid://bbdh6vbxld618" path="res://assets/textures/texture_09.png" id="1_f4fjx"]
 [ext_resource type="Texture2D" uid="uid://4xe8uim4kybb" path="res://assets/textures/texture_03.png" id="2_686m8"]
-[ext_resource type="Script" path="res://leftpaddle.gd" id="2_pay5d"]
-[ext_resource type="Script" path="res://rightpaddle.gd" id="3_bxpko"]
-[ext_resource type="PackedScene" uid="uid://c1aqvar5pvxko" path="res://ball.tscn" id="4_nj6du"]
-[ext_resource type="Script" path="res://ball.gd" id="5_il4f7"]
+[ext_resource type="Script" path="res://scenes/paddle/leftpaddle.gd" id="2_pay5d"]
+[ext_resource type="Script" path="res://scenes/paddle/rightpaddle.gd" id="3_bxpko"]
+[ext_resource type="PackedScene" uid="uid://c1aqvar5pvxko" path="res://scenes/ball/ball.tscn" id="4_nj6du"]
+[ext_resource type="Script" path="res://scenes/ball/ball.gd" id="5_il4f7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_puux4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
