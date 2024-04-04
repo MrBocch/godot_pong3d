@@ -17,7 +17,12 @@ func _process(delta):
 	if bounces % 2 == 0:
 		SPEED += 0.002
 	
-	print(SPEED)
+func reset():
+	SPEED = 2.0
+	accelerate_x = SPEED
+	accelerate_z = SPEED *0.8
+	bounces = 0
+
 
 # hit right paddle 
 func _on_right_area_entered(area):
