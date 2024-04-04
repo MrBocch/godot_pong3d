@@ -22,3 +22,5 @@ func _process(delta):
 	
 
 # how do we check if something entered body?
+func reset():
+	self.position.z = 0

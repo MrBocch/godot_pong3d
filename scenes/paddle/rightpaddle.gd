@@ -20,3 +20,6 @@ func _process(delta):
 	
 	self.position.z = clamp(self.position.z, -1.45, 1.45)
 # how do we check if something entered body?
+
+func reset():
+	self.position.z = 0

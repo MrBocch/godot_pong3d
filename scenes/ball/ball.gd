@@ -24,6 +24,8 @@ func reset():
 	accelerate_x = SPEED
 	accelerate_z = SPEED *0.8
 	bounces = 0
+	position.x = 0
+	position.z = 0
 
 
 # hit right paddle 
