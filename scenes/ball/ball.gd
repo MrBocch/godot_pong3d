@@ -3,6 +3,8 @@ var SPEED = 2.0
 var accelerate_x
 var accelerate_z
 var bounces
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	accelerate_x = SPEED

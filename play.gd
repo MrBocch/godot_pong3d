@@ -1,7 +1,8 @@
 extends Node3D
 
-var left_score
-var right_score
+@export var left_score: int
+@export var right_score: int
+
 var ball_node 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(ball_node)
-
+	print(left_score)
 
 func _on_left_area_entered(area):
 	print("left side was scored on")
