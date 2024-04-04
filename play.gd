@@ -1,7 +1,8 @@
 extends Node3D
 
-@export var left_score: int
-@export var right_score: int
+# dont like how im keeping track of this in two places
+var left_score: int
+var right_score: int
 
 var ball_node 
 var left_pad_node
