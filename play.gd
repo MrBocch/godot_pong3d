@@ -18,10 +18,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(left_score)
+	pass
+	
 
 func _on_left_area_entered(area):
-	print("left side was scored on")
 	right_score += 1
 	
 	ball_node.reset()
@@ -30,7 +30,6 @@ func _on_left_area_entered(area):
 
 
 func _on_right_area_entered(area):
-	print("right side was scored on")
 	left_score += 1
 
 	ball_node.reset()

@@ -4,12 +4,24 @@ var accelerate_x
 var accelerate_z
 var bounces
 
+func initball():
+	if randi() % 2 == 0:
+		accelerate_x = SPEED
+	else:
+		accelerate_x = -SPEED
+		
+	if randi() % 2 == 0:
+		accelerate_z = SPEED *0.8
+	else:
+		accelerate_z = -SPEED *0.8
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	accelerate_x = SPEED
-	accelerate_z = SPEED *0.8
+	randomize()
 	bounces = 0
+	initball()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,9 +33,9 @@ func _process(delta):
 	
 func reset():
 	SPEED = 2.0
-	accelerate_x = SPEED
-	accelerate_z = SPEED *0.8
 	bounces = 0
+	initball()
+	
 	position.x = 0
 	position.z = 0
 
