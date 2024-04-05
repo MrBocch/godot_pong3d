@@ -12,3 +12,6 @@ func _ready():
 func _process(delta):
 	self.text = "%d - %d" % [left, right]
 	
+func reset():
+	left = 0
+	right = 0

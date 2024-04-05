@@ -26,13 +26,20 @@ func _process(delta):
 func _on_left_area_entered(area):
 	scoreboard_node.right += 1
 	
+	if scoreboard_node.right == 7:
+		print("right won")
+		print("show menu, playagaoin? or quit?")
+	
 	ball_node.reset()
 	left_pad_node.reset()
 	right_pad_node.reset()
 
-
 func _on_right_area_entered(area):
 	scoreboard_node.left += 1
+	
+	if scoreboard_node.left == 7:
+		print("left won")
+		print("show menu, playagaoin? or quit?")
 
 	ball_node.reset()
 	left_pad_node.reset()
