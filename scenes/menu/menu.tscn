@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcma7ycoxt815"]
+
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_qndx6"]
+[ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="2_j6kpj"]
+[ext_resource type="VideoStream" path="res://assets/anime_gif.ogv" id="3_fjbj2"]
+[ext_resource type="Texture2D" uid="uid://d2dlbjf0i014n" path="res://assets/bg.jpg" id="4_j20nt"]
+
+[sub_resource type="Theme" id="Theme_7eqml"]
+default_font = ExtResource("2_j6kpj")
+
+[sub_resource type="Theme" id="Theme_jgbmx"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qndx6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -50.5
+offset_right = 33.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7eqml")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jgbmx")
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PLAY
+"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT
+"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+stream = ExtResource("3_fjbj2")
+autoplay = true
+loop = true
+
+[node name="tittle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.5
+offset_right = 576.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_j6kpj")
+theme_override_font_sizes/font_size = 100
+text = "PONG 3D"
+horizontal_alignment = 1
+
+[node name="bg" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 0.552941, 0.768627, 1)
+show_behind_parent = true
+position = Vector2(530, 267)
+scale = Vector2(0.486523, 0.428013)
+texture = ExtResource("4_j20nt")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

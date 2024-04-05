@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scenes/paddle/rightpaddle.gd" id="3_bxpko"]
 [ext_resource type="PackedScene" uid="uid://c1aqvar5pvxko" path="res://scenes/ball/ball.tscn" id="4_nj6du"]
 [ext_resource type="Script" path="res://scenes/ball/ball.gd" id="5_il4f7"]
+[ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="9_0nx3c"]
 [ext_resource type="Script" path="res://scenes/playing/scoreboard.gd" id="9_3o6u0"]
-[ext_resource type="FontFile" uid="uid://dgb5oi65pahgl" path="res://assets/fonts/mexcellent/mexcellent_rg.otf" id="9_fxtvu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_puux4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -52,7 +52,7 @@ uv2_triplanar = true
 size = Vector3(1.115, 1.43, 7.46)
 
 [sub_resource type="Theme" id="Theme_ov30w"]
-default_font = ExtResource("9_fxtvu")
+default_font = ExtResource("9_0nx3c")
 default_font_size = 110
 
 [node name="play" type="Node3D"]
