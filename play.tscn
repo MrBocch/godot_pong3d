@@ -31,7 +31,6 @@ size = Vector3(7.925, 4.5, 1)
 albedo_texture = ExtResource("1_f4fjx")
 uv1_scale = Vector3(0.345, 0.345, 0.345)
 uv1_triplanar = true
-uv2_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mmj7"]
 size = Vector3(7.925, 1, 1)
@@ -80,7 +79,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8nefd")
 [node name="walls" type="Node3D" parent="areana"]
 
 [node name="top" type="Area3D" parent="areana/walls"]
-transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0.221186, -2.8884)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0.221186, -2.80135)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="areana/walls/top"]

@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="3dpong"
 
+[editor]
+
+movie_writer/movie_file="/Users/jorge/code/godot/pong3d/movie_mode.avi"
+
 [input]
 
 right_up={
