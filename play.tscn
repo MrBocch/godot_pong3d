@@ -150,8 +150,6 @@ script = ExtResource("9_3o6u0")
 [connection signal="area_entered" from="areana/walls/top" to="ball" method="_on_top_area_entered"]
 [connection signal="area_entered" from="areana/walls/bot" to="ball" method="_on_bot_area_entered"]
 [connection signal="area_entered" from="areana/score_zone/left" to="." method="_on_left_area_entered"]
-[connection signal="area_entered" from="areana/score_zone/left" to="scoreboard" method="_on_left_area_entered"]
 [connection signal="area_entered" from="areana/score_zone/right" to="." method="_on_right_area_entered"]
-[connection signal="area_entered" from="areana/score_zone/right" to="scoreboard" method="_on_right_area_entered"]
 [connection signal="area_entered" from="left" to="ball" method="_on_left_area_entered"]
 [connection signal="area_entered" from="right" to="ball" method="_on_right_area_entered"]

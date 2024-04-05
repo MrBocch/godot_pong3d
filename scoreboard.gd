@@ -12,11 +12,3 @@ func _ready():
 func _process(delta):
 	self.text = "%d - %d" % [left, right]
 	
-
-
-func _on_left_area_entered(area):
-	right += 1
-
-
-func _on_right_area_entered(area):
-	left += 1
