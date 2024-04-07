@@ -8,6 +8,7 @@ var ball_node
 var left_pad_node
 var right_pad_node
 var scoreboard_node
+var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +17,7 @@ func _ready():
 	left_pad_node = get_node("left")
 	right_pad_node = get_node("right")
 	scoreboard_node = get_node("scoreboard")
+	score = get_node("score")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +26,7 @@ func _process(delta):
 	
 
 func _on_left_area_entered(area):
+	score.play()
 	scoreboard_node.right += 1
 	
 	if scoreboard_node.right == 7:
@@ -35,6 +38,7 @@ func _on_left_area_entered(area):
 	right_pad_node.reset()
 
 func _on_right_area_entered(area):
+	score.play()
 	scoreboard_node.left += 1
 	
 	if scoreboard_node.left == 7:

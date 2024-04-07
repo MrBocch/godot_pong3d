@@ -4,6 +4,8 @@ var accelerate_x
 var accelerate_z
 var bounces
 
+var hit_audio
+
 func initball():
 	if randi() % 2 == 0:
 		accelerate_x = SPEED
@@ -21,6 +23,7 @@ func _ready():
 	randomize()
 	bounces = 0
 	initball()
+	hit_audio = get_node("hit")
 
 
 
@@ -30,7 +33,8 @@ func _process(delta):
 	self.position.z += SPEED * accelerate_z * delta 
 	if bounces % 2 == 0:
 		SPEED += 0.002
-	
+
+
 func reset():
 	SPEED = 2.0
 	bounces = 0
@@ -42,19 +46,22 @@ func reset():
 
 # hit right paddle 
 func _on_right_area_entered(area):
+	hit_audio.play()
 	bounces += 1
 	accelerate_x *= -1
 
 # hit left paddle
 func _on_left_area_entered(area):
+	hit_audio.play()
 	bounces += 1
 	accelerate_x *= -1
 
 # ball hit top wall
 func _on_top_area_entered(area):
+	hit_audio.play()
 	accelerate_z *= -1
 
 
 func _on_bot_area_entered(area):
+	hit_audio.play()
 	accelerate_z *= -1
-

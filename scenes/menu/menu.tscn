@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_qndx6"]
 [ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="2_j6kpj"]
-[ext_resource type="VideoStream" path="res://assets/anime_gif.ogv" id="3_fjbj2"]
-[ext_resource type="Texture2D" uid="uid://d2dlbjf0i014n" path="res://assets/bg.jpg" id="4_j20nt"]
+[ext_resource type="VideoStream" path="res://scenes/menu/anime_gif.ogv" id="3_fjbj2"]
+[ext_resource type="Texture2D" uid="uid://d2dlbjf0i014n" path="res://scenes/menu/bg.jpg" id="4_j20nt"]
 
 [sub_resource type="Theme" id="Theme_7eqml"]
 default_font = ExtResource("2_j6kpj")
@@ -40,6 +40,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_jgbmx")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+stream = ExtResource("3_fjbj2")
+autoplay = true
+loop = true
+
 [node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "PLAY
@@ -49,13 +56,6 @@ text = "PLAY
 layout_mode = 2
 text = "QUIT
 "
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-stream = ExtResource("3_fjbj2")
-autoplay = true
-loop = true
 
 [node name="tittle" type="Label" parent="."]
 layout_mode = 1
