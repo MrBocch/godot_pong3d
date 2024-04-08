@@ -47,7 +47,7 @@ func _on_left_area_entered(area):
 	score.play()
 	scoreboard_node.right += 1
 	
-	if scoreboard_node.right == 1:
+	if scoreboard_node.right == 7:
 		winner("RIGHT")
 	else:
 		ball_node.reset()
@@ -62,7 +62,7 @@ func _on_right_area_entered(area):
 	score.play()
 	scoreboard_node.left += 1
 	
-	if scoreboard_node.left == 1:
+	if scoreboard_node.left == 7:
 		winner("LEFT")
 	else:
 		ball_node.reset()
