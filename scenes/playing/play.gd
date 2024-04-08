@@ -12,6 +12,7 @@ var score
 var timer
 var count_down
 
+var victor_screen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,8 @@ func _ready():
 	score = get_node("score")
 	timer = get_node("Timer")
 	count_down = get_node("count_down")
+	
+	victor_screen = preload("res://scenes/winner/winner.tscn").instantiate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,38 +33,45 @@ func _process(delta):
 	pass
 	
 
+func winner(side):
+	scoreboard_node.victor_screen = true
+	ball_node.reset()
+	left_pad_node.reset()
+	right_pad_node.reset()
+	
+	victor_screen.victor = side
+	add_child(victor_screen)
+	
+
 func _on_left_area_entered(area):
 	score.play()
 	scoreboard_node.right += 1
 	
-	if scoreboard_node.right == 7:
-		print("right won")
-		print("show menu, playagaoin? or quit?")
-	
-	ball_node.reset()
-	left_pad_node.reset()
-	right_pad_node.reset()
-	timer.start()
-	count_down.start()
+	if scoreboard_node.right == 1:
+		winner("RIGHT")
+	else:
+		ball_node.reset()
+		left_pad_node.reset()
+		right_pad_node.reset()
+		
+		timer.start()
+		count_down.start()
 
 
 func _on_right_area_entered(area):
 	score.play()
 	scoreboard_node.left += 1
 	
-	if scoreboard_node.left == 7:
-		print("left won")
-		print("show menu, playagaoin? or quit?")
+	if scoreboard_node.left == 1:
+		winner("LEFT")
+	else:
+		ball_node.reset()
+		left_pad_node.reset()
+		right_pad_node.reset()
+		
+		timer.start()
+		count_down.start()
 
-	ball_node.reset()
-	left_pad_node.reset()
-	right_pad_node.reset()
-	
-	timer.start()
-	count_down.start()
-	ball_node.paused = true
-	left_pad_node.paused = true
-	right_pad_node.paused = true
 
 
 
@@ -72,4 +82,6 @@ func _on_timer_timeout():
 	ball_node.paused = false
 	left_pad_node.paused = false
 	right_pad_node.paused = false
+	# i totally forgot i did this here, and was also
+	# pausing them after scoring, kinda scary
 	

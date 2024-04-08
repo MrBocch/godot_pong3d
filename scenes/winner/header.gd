@@ -1,12 +1,11 @@
-extends Timer
+extends Label
 
-var ball
-var s
+var victor
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	victor = ""
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	self.text = "%s IS THE WINNER" % [victor]

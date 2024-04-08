@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://4w524me1s4ot"]
+[gd_scene load_steps=26 format=3 uid="uid://4w524me1s4ot"]
 
 [ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://scenes/paddle/paddle.tscn" id="1_5dmrk"]
 [ext_resource type="Texture2D" uid="uid://bbdh6vbxld618" path="res://assets/textures/texture_09.png" id="1_f4fjx"]
@@ -12,7 +12,6 @@
 [ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="9_0nx3c"]
 [ext_resource type="Script" path="res://scenes/playing/scoreboard.gd" id="9_3o6u0"]
 [ext_resource type="AudioStream" uid="uid://dj5exhbmkg37g" path="res://scenes/playing/score.wav" id="11_pc2m1"]
-[ext_resource type="Script" path="res://scenes/playing/Timer.gd" id="12_esvi2"]
 [ext_resource type="PackedScene" uid="uid://bsy7lrthgn560" path="res://scenes/countdown/count_down.tscn" id="14_hvp7q"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cl782"]
@@ -166,7 +165,6 @@ process_callback = 0
 wait_time = 3.0
 one_shot = true
 autostart = true
-script = ExtResource("12_esvi2")
 
 [node name="count_down" parent="." instance=ExtResource("14_hvp7q")]
 

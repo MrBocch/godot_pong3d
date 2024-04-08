@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbsr2hthvfg85"]
+
+[ext_resource type="Script" path="res://scenes/winner/winner.gd" id="1_2lo2n"]
+[ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="2_6njsh"]
+[ext_resource type="Script" path="res://scenes/winner/header.gd" id="3_y5enh"]
+
+[node name="winner" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_2lo2n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -33.0
+offset_right = 50.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="play_again" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6njsh")
+theme_override_font_sizes/font_size = 50
+text = "PLAY AGAIN"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6njsh")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = -322.0
+offset_right = 576.0
+offset_bottom = -95.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6njsh")
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_y5enh")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play_again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
