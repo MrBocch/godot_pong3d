@@ -160,6 +160,8 @@ stream = ExtResource("11_pc2m1")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 1.5
+one_shot = true
 autostart = true
 script = ExtResource("12_esvi2")
 

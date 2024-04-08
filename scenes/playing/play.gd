@@ -58,12 +58,13 @@ func _on_right_area_entered(area):
 	ball_node.paused = true
 	left_pad_node.paused = true
 	right_pad_node.paused = true
-	print(ball_node.paused)
+
 
 
 func _on_timer_timeout():
-
-	print("timer ended")
+	# i was confused on the one_shot and autostart 
+	# values, got it working like it should
+	# automatically starts and stops until after is called again
 	ball_node.paused = false
 	left_pad_node.paused = false
 	right_pad_node.paused = false
