@@ -3,6 +3,7 @@ var SPEED = 2.0
 var accelerate_x
 var accelerate_z
 var bounces
+var paused 
 
 var hit_audio
 
@@ -20,6 +21,7 @@ func initball():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	paused = true
 	randomize()
 	bounces = 0
 	initball()
@@ -29,10 +31,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position.x += SPEED * accelerate_x * delta
-	self.position.z += SPEED * accelerate_z * delta 
-	if bounces % 2 == 0:
-		SPEED += 0.002
+	if not paused:
+		self.position.x += SPEED * accelerate_x * delta
+		self.position.z += SPEED * accelerate_z * delta 
+		if bounces % 2 == 0:
+			SPEED += 0.002
 
 
 func reset():
@@ -42,6 +45,7 @@ func reset():
 	
 	position.x = 0
 	position.z = 0
+	paused = true
 
 
 # hit right paddle 

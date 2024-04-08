@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4w524me1s4ot"]
+[gd_scene load_steps=25 format=3 uid="uid://4w524me1s4ot"]
 
 [ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://scenes/paddle/paddle.tscn" id="1_5dmrk"]
 [ext_resource type="Texture2D" uid="uid://bbdh6vbxld618" path="res://assets/textures/texture_09.png" id="1_f4fjx"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://c5xdnn7vexcaj" path="res://assets/fonts/VCR_OSD_MONO_.ttf" id="9_0nx3c"]
 [ext_resource type="Script" path="res://scenes/playing/scoreboard.gd" id="9_3o6u0"]
 [ext_resource type="AudioStream" uid="uid://dj5exhbmkg37g" path="res://scenes/playing/score.wav" id="11_pc2m1"]
+[ext_resource type="Script" path="res://scenes/playing/Timer.gd" id="12_esvi2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_puux4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -157,9 +158,15 @@ script = ExtResource("9_3o6u0")
 [node name="score" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_pc2m1")
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+script = ExtResource("12_esvi2")
+
 [connection signal="area_entered" from="areana/walls/top" to="ball" method="_on_top_area_entered"]
 [connection signal="area_entered" from="areana/walls/bot" to="ball" method="_on_bot_area_entered"]
 [connection signal="area_entered" from="areana/score_zone/left" to="." method="_on_left_area_entered"]
 [connection signal="area_entered" from="areana/score_zone/right" to="." method="_on_right_area_entered"]
 [connection signal="area_entered" from="left" to="ball" method="_on_left_area_entered"]
 [connection signal="area_entered" from="right" to="ball" method="_on_right_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
