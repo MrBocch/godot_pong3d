@@ -10,6 +10,8 @@ var right_pad_node
 var scoreboard_node
 var score
 var timer
+var count_down
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,8 +22,8 @@ func _ready():
 	scoreboard_node = get_node("scoreboard")
 	score = get_node("score")
 	timer = get_node("Timer")
-	
-	print("timer started")
+	count_down = get_node("count_down")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,6 +42,7 @@ func _on_left_area_entered(area):
 	left_pad_node.reset()
 	right_pad_node.reset()
 	timer.start()
+	count_down.start()
 
 
 func _on_right_area_entered(area):
@@ -55,6 +58,7 @@ func _on_right_area_entered(area):
 	right_pad_node.reset()
 	
 	timer.start()
+	count_down.start()
 	ball_node.paused = true
 	left_pad_node.paused = true
 	right_pad_node.paused = true
