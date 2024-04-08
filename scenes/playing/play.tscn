@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://4w524me1s4ot"]
+[gd_scene load_steps=26 format=3 uid="uid://4w524me1s4ot"]
 
 [ext_resource type="PackedScene" uid="uid://daqresh0q8s4n" path="res://scenes/paddle/paddle.tscn" id="1_5dmrk"]
 [ext_resource type="Texture2D" uid="uid://bbdh6vbxld618" path="res://assets/textures/texture_09.png" id="1_f4fjx"]
 [ext_resource type="Script" path="res://scenes/playing/play.gd" id="1_qjih4"]
 [ext_resource type="Texture2D" uid="uid://4xe8uim4kybb" path="res://assets/textures/texture_03.png" id="2_686m8"]
+[ext_resource type="Texture2D" uid="uid://b4wcfgd8xnnux" path="res://assets/_0001_AllSkyFree_Screen_08.jpg" id="2_d65r0"]
 [ext_resource type="Script" path="res://scenes/paddle/leftpaddle.gd" id="2_pay5d"]
 [ext_resource type="Script" path="res://scenes/paddle/rightpaddle.gd" id="3_bxpko"]
 [ext_resource type="PackedScene" uid="uid://c1aqvar5pvxko" path="res://scenes/ball/ball.tscn" id="4_nj6du"]
@@ -13,17 +14,18 @@
 [ext_resource type="AudioStream" uid="uid://dj5exhbmkg37g" path="res://scenes/playing/score.wav" id="11_pc2m1"]
 [ext_resource type="Script" path="res://scenes/playing/Timer.gd" id="12_esvi2"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_puux4"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cl782"]
+panorama = ExtResource("2_d65r0")
 
 [sub_resource type="Sky" id="Sky_o4cfg"]
-sky_material = SubResource("ProceduralSkyMaterial_puux4")
+sky_material = SubResource("PanoramaSkyMaterial_cl782")
 
 [sub_resource type="Environment" id="Environment_mdllj"]
 background_mode = 2
 sky = SubResource("Sky_o4cfg")
-tonemap_mode = 2
+sky_custom_fov = 63.1
+sky_rotation = Vector3(3.09796, 1.58999, 7.48746)
+ambient_light_source = 3
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_act85"]
@@ -151,7 +153,8 @@ offset_right = 101.5
 offset_bottom = 133.0
 grow_horizontal = 2
 theme = SubResource("Theme_ov30w")
-theme_override_colors/font_color = Color(0.866667, 0.85098, 0.941176, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "0 - 0"
 script = ExtResource("9_3o6u0")
 
