@@ -1,7 +1,8 @@
 extends Control
 
-var victor
+var victor # a value, in play.gd
 var label
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label = get_node("header")

@@ -1,9 +1,11 @@
 extends Label
 
-var victor
+# is assigned LEFT or RIGHT by winner.gd in function winner(), this is spaggeti
+var victor: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	victor = ""
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,5 @@
 extends Area3D
+
 var SPEED = 2.0
 var accelerate_x
 var accelerate_z

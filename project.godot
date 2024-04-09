@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3dpong"
-config/tags=PackedStringArray("project")
+config/tags=PackedStringArray("complete", "project")
 run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://showcase.png"

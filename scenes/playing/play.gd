@@ -1,30 +1,23 @@
 extends Node3D
 
 # dont like how im keeping track of this in two places
-var left: int
-var right: int
-
-var ball_node 
-var left_pad_node
-var right_pad_node
-var scoreboard_node
-var score
-var timer
-var count_down
+#var left: int
+#var right: int
 
 var victor_screen
 
+@onready var ball_node = get_node("ball")
+@onready var left_pad_node = $left
+@onready var right_pad_node = $right
+@onready var scoreboard_node = $scoreboard
+@onready var score: AudioStreamPlayer = $score
+@onready var timer = $Timer
+@onready var count_down = $count_down
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	ball_node = get_node("ball")
-	left_pad_node = get_node("left")
-	right_pad_node = get_node("right")
-	scoreboard_node = get_node("scoreboard")
-	score = get_node("score")
-	timer = get_node("Timer")
-	count_down = get_node("count_down")
-	
+	# save yourself all this boilerplate by using @onready
+	#ball_node = get_node("ball")
 	victor_screen = preload("res://scenes/winner/winner.tscn").instantiate()
 
 
